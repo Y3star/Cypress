@@ -3,23 +3,23 @@ import SignUpPage from "../tests/Pageobject/SignUpPage";
 import LoginPage from "../tests/Pageobject/LoginPage";
 import TalkPage from "../tests/Pageobject/TalkPage";
 import SupportPage from "../tests/Pageobject/SupportPage";
+
 const mainPage = new MainPage();
 const signUpPage = new SignUpPage();
 const loginPage = new LoginPage();
 const talkPage = new TalkPage();
 const supportPage = new SupportPage();
 
-
 describe("Test cases", () => {
     beforeEach(() => {
         // run these tests as if in a desktop
         // browser with a 1080p monitor
-        //cy.viewport(1920, 1080);
+        // cy.viewport(1920, 1080);
         mainPage.goto();
         mainPage.clickCookiesButton();
     });
 
-    it("case 1(Sign Up)", () => {
+    xit("case 1(Sign Up)", () => {
         mainPage.SignUp.click();
         signUpPage.email.type("fake@gmail.com");
         signUpPage.fullName.type("Fake Name");
@@ -29,12 +29,12 @@ describe("Test cases", () => {
         signUpPage.clickCreateAcc.click();
         cy.wait(300);
     });
-    it("case 2(Log In)", () => {
+    xit("case 2(Log In)", () => {
         mainPage.Login.click();
         loginPage.setValueInput(loginPage.loginInput, "fake@gmail.com");
-        loginPage.password.type("Qw1234df!234d");
-        loginPage.checkBox.click();
-        loginPage.submit.click();
+        loginPage.setValueInput(loginPage.passwordInput, "Qw1234df!234d");
+        loginPage.clickElement(loginPage.checkBox);
+        loginPage.clickElement(loginPage.submit);
         cy.wait(300);
     });
     xit("case 3(Talk to an expert)", () => {
@@ -94,18 +94,32 @@ describe("Test cases", () => {
         cy.wait(100);
         loginPage.logError.screenshot("scr_error");
     });
-    xit("case 8(Scroll and assert bottom title)", () => {
-        cy.scrollTo("bottom");
-        mainPage.productsBottom.should("include.text", "Products");
-        mainPage.resourcesBottom.should("include.text", "Resources");
-        mainPage.pricingBottom.should("include.text", "Pricing");
-        mainPage.companyBottom.should("include.text", "Company");
-        mainPage.missControlBottom.should("include.text", "Mission Control");
-        mainPage.socialBottom.should("include.text", "Social");
+    it("case 8(Scroll and assert bottom title)", () => {
+        mainPage.productsBottom
+            .should("be.visible")
+            .should("include.text", "Products");
+        mainPage.resourcesBottom
+            .should("be.visible")
+            .should("include.text", "Resources");
+        mainPage.pricingBottom
+            .should("be.visible")
+            .should("include.text", "Pricing");
+        mainPage.companyBottom
+            .should("be.visible")
+            .should("include.text", "Company");
+        mainPage.missControlBottom
+            .should("be.visible")
+            .should("include.text", "Mission Control");
+        mainPage.socialBottom
+            .should("be.visible")
+            .should("include.text", "Social");
     });
-    // it("case 9", async () => {
-
-    // });
+    xit("case 9(Check element is visible)", async () => {
+        cy.get(".sc-1a5981e5-6").should("not.exist");
+        cy.scrollTo("center");
+        cy.wait(2000);
+        cy.get(".sc-1a5981e5-6").should("be.visible");
+    });
     // it("case 10", async () => {
 
     // });

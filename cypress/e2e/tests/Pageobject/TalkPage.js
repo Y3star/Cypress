@@ -1,4 +1,6 @@
-class TalkPage {
+import BasePage from "./BasePage";
+
+class TalkPage  extends BasePage{
     get email() {
         return cy.get("#Email");
     }

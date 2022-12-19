@@ -1,4 +1,6 @@
-class SupportPage {
+import BasePage from "./BasePage";
+
+class SupportPage extends BasePage{
 get input(){
     return cy.get('[name="q"]')
 }

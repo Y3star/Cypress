@@ -1,11 +1,6 @@
-class MainPage {
-    goto() {
-        cy.visit("https://telnyx.com");
-        cy.wait(200);
-    }
-    clickCookiesButton() {
-        return cy.get("#__next footer+div div div button").click();
-    }
+import BasePage from "./BasePage";
+
+class MainPage extends BasePage {
     get SignUp() {
         return cy.get('ul li:nth-child(2) [href="/sign-up"]');
     }
