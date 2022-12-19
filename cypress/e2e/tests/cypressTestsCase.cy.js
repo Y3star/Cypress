@@ -85,14 +85,14 @@ describe("Test cases", () => {
         supportPage.randomSectionclick.click();
         cy.wait(300);
     });
-    xit("case 7(Screenshot error message)", () => {
+    it("case 7(Screenshot error message)", () => {
         mainPage.Login.click();
         loginPage.setValueInput(loginPage.loginInput, "fake@gmail.com");
         loginPage.password.type("Qw1234df!234d");
         loginPage.checkBox.click();
         loginPage.submit.click();
         cy.wait(100);
-        loginPage.logError.screenshot("scr_error");
+        loginPage.logError.screenshot("scr_error",true);
     });
     it("case 8(Scroll and assert bottom title)", () => {
         mainPage.productsBottom
