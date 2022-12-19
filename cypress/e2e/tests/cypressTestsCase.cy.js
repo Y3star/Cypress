@@ -52,9 +52,8 @@ describe("Test cases", () => {
         await talkPage.checkBox.click()
         await talkPage.submit.click()
         await cy.wait(400)
-
     });
-    it("case 4(assert numbers)", async () => {
+    xit("case 4(assert numbers)", async () => {
         await mainPage.site;
         await mainPage.CookiesButton.click();
         await mainPage.Talk.click();
@@ -68,10 +67,12 @@ describe("Test cases", () => {
         await talkPage.phoneNetherlands.should('include.text','+31 853 018 256')
         await cy.wait(400)
     });
-    // it("case 5", async () => {
-    //     await mainPage.site;
-    //     await mainPage.CookiesButton.click();
-    // });
+    it("case 5()", async () => {
+        await mainPage.site;
+        await mainPage.CookiesButton.click();
+        await mainPage.products.click('bottom', { force: true });
+
+    });
     // it("case 6", async () => {
     //     await mainPage.site;
     //     await mainPage.CookiesButton.click();
