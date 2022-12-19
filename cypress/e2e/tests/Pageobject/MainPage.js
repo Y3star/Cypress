@@ -1,9 +1,12 @@
-class MainPage{
-
+class MainPage {
+    get site() {
+        cy.visit("https://telnyx.com");
+    }
     get CookiesButton() {
-        return cy.get('#__next footer+div div div button');
-       // return cy.get('.sc-df34c536-0 > :nth-child(1) > .sc-5d3a275a-1');
-    };
-
-};
+        return cy.get("#__next footer+div div div button");
+    }
+    get SignUp(){
+        return cy.get('ul li:nth-child(2) [href="/sign-up"]')
+    }
+}
 export default MainPage;
