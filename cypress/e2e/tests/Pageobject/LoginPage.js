@@ -1,6 +1,6 @@
 class LoginPage {
-get email(){
-    return cy.get('[class*="caUEVB"] input[name="email"]')
+setValueEmailLogin(text){
+    return cy.get('[class*="caUEVB"] input[name="email"]').type(text)
 }
 get password(){
     return cy.get('[class*="caUEVB"] input[name="password"]')

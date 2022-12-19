@@ -1,14 +1,15 @@
 class MainPage {
-    get site() {
+    goto() {
         cy.visit("https://telnyx.com");
+        cy.wait(200);
     }
-    get CookiesButton() {
-        return cy.get("#__next footer+div div div button");
+    clickCookiesButton() {
+        return cy.get("#__next footer+div div div button").click();
     }
     get SignUp() {
         return cy.get('ul li:nth-child(2) [href="/sign-up"]');
     }
-    get LogIn() {
+    get Login() {
         return cy.get("div > a:nth-child(4)");
     }
     get Talk() {

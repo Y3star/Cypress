@@ -3,126 +3,109 @@ import SignUpPage from "../tests/Pageobject/SignUpPage";
 import LoginPage from "../tests/Pageobject/LoginPage";
 import TalkPage from "../tests/Pageobject/TalkPage";
 import SupportPage from "../tests/Pageobject/SupportPage";
-import { expect } from "chai";
+const mainPage = new MainPage();
+const signUpPage = new SignUpPage();
+const loginPage = new LoginPage();
+const talkPage = new TalkPage();
+const supportPage = new SupportPage();
 
 describe("Test cases", () => {
-    const mainPage = new MainPage();
-    const signUpPage = new SignUpPage();
-    const loginPage = new LoginPage();
-    const talkPage = new TalkPage();
-    const supportPage = new SupportPage();
-
     beforeEach(() => {
         // run these tests as if in a desktop
-        // browser with a 720p monitor
-        cy.viewport(1920, 1080);
+        // browser with a 1080p monitor
+        //cy.viewport(1920, 1080);
+        mainPage.goto();
+        mainPage.clickCookiesButton();
     });
 
-    xit("case 1(Sign Up)", async () => {
-        await mainPage.site;
-        await mainPage.CookiesButton.click();
-        await mainPage.SignUp.click();
-        await signUpPage.email.type("fake@gmail.com");
-        await signUpPage.fullName.type("Fake Name");
-        await signUpPage.password.type("Qw1234df!234d");
-        await signUpPage.checkBoxIAgree.click();
-        await signUpPage.checkBoxIWant.click();
-        await signUpPage.clickCreateAcc.click();
-        await cy.wait(300);
+    it("case 1(Sign Up)", () => {
+        mainPage.SignUp.click();
+        signUpPage.email.type("fake@gmail.com");
+        signUpPage.fullName.type("Fake Name");
+        signUpPage.password.type("Qw1234df!234d");
+        signUpPage.checkBoxIAgree.click();
+        signUpPage.checkBoxIWant.click();
+        signUpPage.clickCreateAcc.click();
+        cy.wait(300);
     });
-    xit("case 2(Log In)", async () => {
-        await mainPage.site;
-        await mainPage.CookiesButton.click();
-        await mainPage.LogIn.click()
-        await loginPage.email.type("fake@gmail.com");
-        await loginPage.password.type("Qw1234df!234d");
-        await loginPage.checkBox.click();
-        await loginPage.submit.click();
-        await cy.wait(300);
+    it("case 2(Log In)", () => {
+        mainPage.Login.click();
+        loginPage.setValueEmailLogin("fake@gmail.com");
+        loginPage.password.type("Qw1234df!234d");
+        loginPage.checkBox.click();
+        loginPage.submit.click();
+        cy.wait(300);
     });
-    xit("case 3(Talk to an expert)", async () => {
-        await mainPage.site;
-        await mainPage.CookiesButton.click();
-        await mainPage.Talk.click();
-        await talkPage.selecter.select('Sales Inquiry')
-        await talkPage.firstName.type('Fake Name');
-        await talkPage.lastName.type('Fake last Name')
-        await talkPage.email.type('fake@gmail.com')
-        await talkPage.selecter2.select('+1')
-        await talkPage.phone.type('3453453450')
-        await talkPage.web.type('https://fake-site.gg')
-        await talkPage.desc.type('ty ty ty ty ty ty ty ty ty ty ty')
-        await talkPage.checkBox.click()
-        await talkPage.submit.click()
-        await cy.wait(300)
+    it("case 3(Talk to an expert)", () => {
+        mainPage.Talk.click();
+        cy.wait(2000);
+        talkPage.selecter.select("Sales Inquiry");
+        talkPage.firstName.type("Fake Name");
+        talkPage.lastName.type("Fake last Name");
+        talkPage.email.type("fake@gmail.com");
+        talkPage.selecter2.select("+1");
+        talkPage.phone.type("3453453450");
+        talkPage.web.type("https://fake-site.gg");
+        talkPage.desc.type("ty ty ty ty ty ty ty ty ty ty ty");
+        talkPage.checkBox.click();
+        talkPage.submit.click();
+        cy.wait(300);
     });
-    xit("case 4(assert numbers)", async () => {
-        await mainPage.site;
-        await mainPage.CookiesButton.click();
-        await mainPage.Talk.click();
-        await talkPage.phoneEstonia.scrollIntoView()
-        await cy.wait(300)
-        await talkPage.phoneEstonia.should('include.text', '+372 699 1435');
-        await talkPage.phoneFinland.should('include.text', '+358 753 255 300');
-        await talkPage.phoneIreland.should('include.text', '+353 818 123 457');
-        await talkPage.phoneIsrael.should('include.text', '+972 772 2000 92');
-        await talkPage.phoneMexico.should('include.text', '+52 558 897 4917');
-        await talkPage.phoneNetherlands.should('include.text','+31 853 018 256')
-        await cy.wait(300)
+    it("case 4(assert numbers)", () => {
+        mainPage.Talk.click();
+        talkPage.phoneEstonia.scrollIntoView();
+        cy.wait(300);
+        talkPage.phoneEstonia.should("include.text", "+372 699 1435");
+        talkPage.phoneFinland.should("include.text", "+358 753 255 300");
+        talkPage.phoneIreland.should("include.text", "+353 818 123 457");
+        talkPage.phoneIsrael.should("include.text", "+972 772 2000 92");
+        talkPage.phoneMexico.should("include.text", "+52 558 897 4917");
+        talkPage.phoneNetherlands.should("include.text", "+31 853 018 256");
+        cy.wait(300);
     });
-    xit("case 5(assert main-menu)", async () => {
-        await mainPage.site;
-        await mainPage.CookiesButton.click();
-        await mainPage.products.click('bottom', { force: true });
-        await mainPage.products.should('include.text','Products')
-        await mainPage.solutions.click('bottom', { force: true });
-        await mainPage.solutions.should('include.text','Solutions')
-        await mainPage.resources.click('bottom', { force: true });
-        await mainPage.resources.should('include.text','Resources')
-        await mainPage.company.click('bottom', { force: true });
-        await mainPage.company.should('include.text','Company')
-        await mainPage.pricing.click('bottom', { force: true });
-        await mainPage.pricing.should('include.text','Pricing')
-        await cy.wait(300)
+    it("case 5(assert main-menu)", () => {
+        mainPage.products.click("bottom", { force: true });
+        mainPage.products.should("include.text", "Products");
+        mainPage.solutions.click("bottom", { force: true });
+        mainPage.solutions.should("include.text", "Solutions");
+        mainPage.resources.click("bottom", { force: true });
+        mainPage.resources.should("include.text", "Resources");
+        mainPage.company.click("bottom", { force: true });
+        mainPage.company.should("include.text", "Company");
+        mainPage.pricing.click("bottom", { force: true });
+        mainPage.pricing.should("include.text", "Pricing");
+        cy.wait(300);
     });
-    xit("case 6(Support Center)", async () => {
-        await mainPage.site;
-        await mainPage.CookiesButton.click();
-        await mainPage.supportLink.click();
-        await supportPage.input.type('getting')
-        await supportPage.randomSectionclick.click();
-        await supportPage.input.type('start')
-        await supportPage.randomSectionclick.click();
-        await cy.wait(300)
+    it("case 6(Support Center)", () => {
+        mainPage.supportLink.click();
+        supportPage.input.type("getting");
+        supportPage.randomSectionclick.click();
+        supportPage.input.type("start");
+        supportPage.randomSectionclick.click();
+        cy.wait(300);
     });
-    xit("case 7(Screenshot error message)", async () => {
-        await mainPage.site;
-        await mainPage.CookiesButton.click();
-        await mainPage.LogIn.click()
-        await loginPage.email.type("fake@gmail.com");
-        await loginPage.password.type("Qw1234df!234d");
-        await loginPage.checkBox.click();
-        await loginPage.submit.click();
-        await cy.wait(100);
-        await loginPage.logError.screenshot("scr_error")
+    it("case 7(Screenshot error message)", () => {
+        mainPage.Login.click();
+        loginPage.setValueEmailLogin("fake@gmail.com");
+        loginPage.password.type("Qw1234df!234d");
+        loginPage.checkBox.click();
+        loginPage.submit.click();
+        cy.wait(100);
+        loginPage.logError.screenshot("scr_error");
     });
-    it("case 8(Scroll and assert bottom title)", async () => {
-        await mainPage.site;
-        await mainPage.CookiesButton.click();
-        cy.scrollTo('bottom')
-        await mainPage.productsBottom.should('include.text','Products')
-        await mainPage.resourcesBottom.should('include.text','Resources')
-        await mainPage.pricingBottom.should('include.text','Pricing')
-        await mainPage.companyBottom.should('include.text','Company')
-        await mainPage.missControlBottom.should('include.text','Mission Control')
-        await mainPage.socialBottom.should('include.text','Social')
+    it("case 8(Scroll and assert bottom title)", () => {
+        cy.scrollTo("bottom");
+        mainPage.productsBottom.should("include.text", "Products");
+        mainPage.resourcesBottom.should("include.text", "Resources");
+        mainPage.pricingBottom.should("include.text", "Pricing");
+        mainPage.companyBottom.should("include.text", "Company");
+        mainPage.missControlBottom.should("include.text", "Mission Control");
+        mainPage.socialBottom.should("include.text", "Social");
     });
     // it("case 9", async () => {
-    //     await mainPage.site;
-    //     await mainPage.CookiesButton.click();
+
     // });
     // it("case 10", async () => {
-    //     await mainPage.site;
-    //     await mainPage.CookiesButton.click();
+
     // });
 });
