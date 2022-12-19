@@ -54,7 +54,6 @@ class MainPage {
     get socialBottom(){
         return cy.get('[data-e2e*="soc"] div p')
     }
- 
     //
 }
 export default MainPage;

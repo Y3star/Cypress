@@ -9,6 +9,7 @@ const loginPage = new LoginPage();
 const talkPage = new TalkPage();
 const supportPage = new SupportPage();
 
+
 describe("Test cases", () => {
     beforeEach(() => {
         // run these tests as if in a desktop
