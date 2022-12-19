@@ -15,7 +15,8 @@ class SignUpPage {
         return cy.get(".sc-26f7330-5.lBxvj rect");
     }
     get clickCreateAcc() {
-        return cy.get("*//button [contains(text(),'Create Account')]");
+       // return cy.get("*//button [contains(text(),'Create Account')]");
+        return cy.get('.sc-26f7330-6.bPqONU button')
     }
 }
 export default SignUpPage;
