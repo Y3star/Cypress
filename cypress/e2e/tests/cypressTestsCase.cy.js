@@ -30,13 +30,13 @@ describe("Test cases", () => {
     });
     it("case 2(Log In)", () => {
         mainPage.Login.click();
-        loginPage.setValueEmailLogin("fake@gmail.com");
+        loginPage.setValueInput(loginPage.loginInput, "fake@gmail.com");
         loginPage.password.type("Qw1234df!234d");
         loginPage.checkBox.click();
         loginPage.submit.click();
         cy.wait(300);
     });
-    it("case 3(Talk to an expert)", () => {
+    xit("case 3(Talk to an expert)", () => {
         mainPage.Talk.click();
         cy.wait(2000);
         talkPage.selecter.select("Sales Inquiry");
@@ -51,7 +51,7 @@ describe("Test cases", () => {
         talkPage.submit.click();
         cy.wait(300);
     });
-    it("case 4(assert numbers)", () => {
+    xit("case 4(assert numbers)", () => {
         mainPage.Talk.click();
         talkPage.phoneEstonia.scrollIntoView();
         cy.wait(300);
@@ -63,7 +63,7 @@ describe("Test cases", () => {
         talkPage.phoneNetherlands.should("include.text", "+31 853 018 256");
         cy.wait(300);
     });
-    it("case 5(assert main-menu)", () => {
+    xit("case 5(assert main-menu)", () => {
         mainPage.products.click("bottom", { force: true });
         mainPage.products.should("include.text", "Products");
         mainPage.solutions.click("bottom", { force: true });
@@ -76,7 +76,7 @@ describe("Test cases", () => {
         mainPage.pricing.should("include.text", "Pricing");
         cy.wait(300);
     });
-    it("case 6(Support Center)", () => {
+    xit("case 6(Support Center)", () => {
         mainPage.supportLink.click();
         supportPage.input.type("getting");
         supportPage.randomSectionclick.click();
@@ -84,16 +84,16 @@ describe("Test cases", () => {
         supportPage.randomSectionclick.click();
         cy.wait(300);
     });
-    it("case 7(Screenshot error message)", () => {
+    xit("case 7(Screenshot error message)", () => {
         mainPage.Login.click();
-        loginPage.setValueEmailLogin("fake@gmail.com");
+        loginPage.setValueInput(loginPage.loginInput, "fake@gmail.com");
         loginPage.password.type("Qw1234df!234d");
         loginPage.checkBox.click();
         loginPage.submit.click();
         cy.wait(100);
         loginPage.logError.screenshot("scr_error");
     });
-    it("case 8(Scroll and assert bottom title)", () => {
+    xit("case 8(Scroll and assert bottom title)", () => {
         cy.scrollTo("bottom");
         mainPage.productsBottom.should("include.text", "Products");
         mainPage.resourcesBottom.should("include.text", "Resources");
