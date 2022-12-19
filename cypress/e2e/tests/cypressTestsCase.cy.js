@@ -59,11 +59,13 @@ describe("Test cases", () => {
         await mainPage.CookiesButton.click();
         await mainPage.Talk.click();
         await talkPage.phoneEstonia.scrollIntoView()
+        await cy.wait(200)
         await talkPage.phoneEstonia.should('include.text', '+372 699 1435');
         await talkPage.phoneFinland.should('include.text', '+358 753 255 300');
         await talkPage.phoneIreland.should('include.text', '+353 818 123 457');
         await talkPage.phoneIsrael.should('include.text', '+972 772 2000 92');
-        await talkPage.phoneMexico.should('include.text', ' +52 558 897 4917');
+        await talkPage.phoneMexico.should('include.text', '+52 558 897 4917');
+        await talkPage.phoneNetherlands.should('include.text','+31 853 018 256')
         await cy.wait(400)
     });
     // it("case 5", async () => {

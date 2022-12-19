@@ -33,5 +33,20 @@ class TalkPage {
     get phoneEstonia(){
         return cy.get('[href="tel:+372-699-1435"] span')
     }
+    get phoneFinland(){
+        return cy.get('[href="tel:+358-753-255-300"] span')
+    }
+    get phoneIreland(){
+        return cy.get('[href="tel:+353-818-123-457"] span')
+    }
+    get phoneIsrael(){
+        return cy.get('[href="tel:+972-772-2000-92"] span')
+    }
+    get phoneMexico(){
+        return cy.get('[href="tel:+52-558-897-4917"] span')
+    }
+    get phoneNetherlands(){
+        return cy.get('[href="tel:+31-853-018-256"] span')
+    }
 }
 export default TalkPage;
