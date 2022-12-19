@@ -16,19 +16,23 @@ class MainPage {
     }
     //main menu
     get products() {
-        return cy.get("ul > li:nth-child(1) > span ");
+        return cy.get("ul > li:nth-child(1) > span > span");
     }
     get solutions() {
-        return cy.get("ul > li:nth-child(3) > span >span");
+        return cy.get("ul > li:nth-child(3) > span > span");
     }
     get resources() {
-        return cy.get("ul > li:nth-child(6) > span >span");
+        return cy.get("ul > li:nth-child(6) > span > span");
     }
     get company() {
-        return cy.get("ul > li:nth-child(8) > span >span");
+        return cy.get("ul > li:nth-child(8) > span > span");
     }
     get pricing() {
-        return cy.get("ul > li:nth-child(10) > span >span");
+        return cy.get("ul > li:nth-child(10) > span > span");
+    }
+    //
+    get supportLink(){
+        return cy.get("header  div > a:nth-child(3)")
     }
 }
 export default MainPage;
