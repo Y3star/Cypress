@@ -34,5 +34,26 @@ class MainPage {
     get supportLink(){
         return cy.get("header  div > a:nth-child(3)")
     }
+    //
+    get productsBottom(){
+        return cy.get('[data-e2e*="pro"] div p')
+    }
+    get resourcesBottom(){
+        return cy.get('[data-e2e*="res"] div p')
+    }
+    get pricingBottom(){
+        return cy.get('[data-e2e*="pri"] div p')
+    }
+    get companyBottom(){
+        return cy.get('[data-e2e*="com"] div p')
+    }
+    get missControlBottom(){
+        return cy.get('[data-e2e*="miss"] div p')
+    }
+    get socialBottom(){
+        return cy.get('[data-e2e*="soc"] div p')
+    }
+ 
+    //
 }
 export default MainPage;

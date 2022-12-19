@@ -3,6 +3,7 @@ import SignUpPage from "../tests/Pageobject/SignUpPage";
 import LoginPage from "../tests/Pageobject/LoginPage";
 import TalkPage from "../tests/Pageobject/TalkPage";
 import SupportPage from "../tests/Pageobject/SupportPage";
+import { expect } from "chai";
 
 describe("Test cases", () => {
     const mainPage = new MainPage();
@@ -94,7 +95,7 @@ describe("Test cases", () => {
         await supportPage.randomSectionclick.click();
         await cy.wait(300)
     });
-    it("case 7(Screenshot error message)", async () => {
+    xit("case 7(Screenshot error message)", async () => {
         await mainPage.site;
         await mainPage.CookiesButton.click();
         await mainPage.LogIn.click()
@@ -105,10 +106,17 @@ describe("Test cases", () => {
         await cy.wait(100);
         await loginPage.logError.screenshot("scr_error")
     });
-    // it("case 8", async () => {
-    //     await mainPage.site;
-    //     await mainPage.CookiesButton.click();
-    // });
+    it("case 8(Scroll and assert bottom title)", async () => {
+        await mainPage.site;
+        await mainPage.CookiesButton.click();
+        cy.scrollTo('bottom')
+        await mainPage.productsBottom.should('include.text','Products')
+        await mainPage.resourcesBottom.should('include.text','Resources')
+        await mainPage.pricingBottom.should('include.text','Pricing')
+        await mainPage.companyBottom.should('include.text','Company')
+        await mainPage.missControlBottom.should('include.text','Mission Control')
+        await mainPage.socialBottom.should('include.text','Social')
+    });
     // it("case 9", async () => {
     //     await mainPage.site;
     //     await mainPage.CookiesButton.click();
