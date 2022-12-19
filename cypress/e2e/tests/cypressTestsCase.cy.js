@@ -69,7 +69,7 @@ describe("Test cases", () => {
         await talkPage.phoneNetherlands.should('include.text','+31 853 018 256')
         await cy.wait(300)
     });
-    xit("case 5(intro main-menu)", async () => {
+    xit("case 5(assert main-menu)", async () => {
         await mainPage.site;
         await mainPage.CookiesButton.click();
         await mainPage.products.click('bottom', { force: true });
@@ -94,9 +94,16 @@ describe("Test cases", () => {
         await supportPage.randomSectionclick.click();
         await cy.wait(300)
     });
-    it("case 7()", async () => {
+    it("case 7(Screenshot error message)", async () => {
         await mainPage.site;
         await mainPage.CookiesButton.click();
+        await mainPage.LogIn.click()
+        await loginPage.email.type("fake@gmail.com");
+        await loginPage.password.type("Qw1234df!234d");
+        await loginPage.checkBox.click();
+        await loginPage.submit.click();
+        await cy.wait(100);
+        await loginPage.logError.screenshot("scr_error")
     });
     // it("case 8", async () => {
     //     await mainPage.site;

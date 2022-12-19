@@ -11,5 +11,8 @@ get checkBox(){
 get submit(){
     return cy.get('[aria-label="loginForm"] button')
 }
+get logError(){
+    return cy.get('.Message__MessageContent-sc-1lbs5ge-1')
+}
 }
 export default LoginPage;
