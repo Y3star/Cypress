@@ -12,7 +12,7 @@ describe("Main page", () => {
         mainPage.clickCookiesButton();
     });
 
-    it("(assert main-menu)", () => {
+    it("(Assert main-menu)", () => {
         //cant use hovar right now because my version 12 , and plagin real hovar work in 11v or lowest
         mainPage.clickElement(mainPage.products);
         mainPage.products.should("include.text", "Products");
@@ -47,9 +47,9 @@ describe("Main page", () => {
             .should("include.text", "Social");
     });
     it("(Check element is visible)", () => {
-        mainPage.hiddenElement.should("not.exist");
+        mainPage.selectElement(mainPage.hiddenElement).should("not.exist");
         cy.scrollTo("center");
         cy.wait(2000);
-        mainPage.hiddenElement.should("be.visible");
+        mainPage.selectElement(mainPage.hiddenElement).should("be.visible");
     });
 });
