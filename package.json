@@ -4,9 +4,11 @@
     "cypress": "^12.1.0"
   },
   "dependencies": {
-    "@cypress/xpath": "^2.0.3",
-    "allure-commandline": "^2.20.1",
-    "mocha-allure-reporter": "^1.4.0",
-    "save-dev": "^0.0.1-security"
+    "allure-commandline": "^2.20.1"
+  },
+  "scripts": {
+    "cy:open": "npx cypress open", 
+    "cy:run": "npx cypress run"
+    
   }
 }
