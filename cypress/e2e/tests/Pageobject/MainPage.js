@@ -10,8 +10,6 @@ class MainPage extends BasePage {
     resources = "ul > li:nth-child(6) > span > span";
     company = "ul > li:nth-child(8) > span > span";
     pricing = "ul > li:nth-child(10) > span > span";
-    //
-    supportLink = "header  div > a:nth-child(3)";
     //main menu Title- bottom page
     productsBottomTitle = '[data-e2e*="pro"] div p';
     resourcesBottomTitle = '[data-e2e*="res"] div p';

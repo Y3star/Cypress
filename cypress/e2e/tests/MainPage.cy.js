@@ -5,7 +5,6 @@ import TalkPage from "../tests/Pageobject/TalkPage";
 import SupportPage from "../tests/Pageobject/SupportPage";
 
 const mainPage = new MainPage();
-const signUpPage = new SignUpPage();
 const loginPage = new LoginPage();
 const talkPage = new TalkPage();
 const supportPage = new SupportPage();
@@ -15,29 +14,12 @@ describe("Test cases", () => {
         // run these tests as if in a desktop
         // browser with a 1080p monitor
         // cy.viewport(1920, 1080);
+        // but use config its better
         mainPage.goto();
         mainPage.clickCookiesButton();
     });
-
-    xit("case 1(Sign Up)", () => {
-        mainPage.SignUp.clickElement()
-        signUpPage.email.type("fake@gmail.com");
-        signUpPage.fullName.type("Fake Name");
-        signUpPage.password.type("Qw1234df!234d");
-        signUpPage.checkBoxIAgree.click();
-        signUpPage.checkBoxIWant.click();
-        signUpPage.clickCreateAcc.click();
-        cy.wait(300);
-    });
-    xit("case 2(Log In)", () => {
-        mainPage.Login.clickElement();
-        loginPage.setValueInput(loginPage.loginInput, "fake@gmail.com");
-        loginPage.setValueInput(loginPage.passwordInput, "Qw1234df!234d");
-        loginPage.clickElement(loginPage.checkBox);
-        loginPage.clickElement(loginPage.submit);
-        cy.wait(300);
-    });
-    xit("case 3(Talk to an expert)", () => {
+   
+    xit("case 9(Expert page) all valid", () => {
         mainPage.Talk.click();
         cy.wait(2000);
         talkPage.selecter.select("Sales Inquiry");
@@ -52,7 +34,7 @@ describe("Test cases", () => {
         talkPage.submit.click();
         cy.wait(300);
     });
-    xit("case 4(assert numbers)", () => {
+    xit("case 10(assert numbers)", () => {
         mainPage.Talk.click();
         talkPage.phoneEstonia.scrollIntoView();
         cy.wait(300);
@@ -64,7 +46,7 @@ describe("Test cases", () => {
         talkPage.phoneNetherlands.should("include.text", "+31 853 018 256");
         cy.wait(300);
     });
-    xit("case 5(assert main-menu)", () => {
+    xit("case 11(assert main-menu)", () => {
         mainPage.products.click("bottom", { force: true });
         mainPage.products.should("include.text", "Products");
         mainPage.solutions.click("bottom", { force: true });
@@ -77,24 +59,7 @@ describe("Test cases", () => {
         mainPage.pricing.should("include.text", "Pricing");
         cy.wait(300);
     });
-    xit("case 6(Support Center)", () => {
-        mainPage.supportLink.click();
-        supportPage.input.type("getting");
-        supportPage.randomSectionclick.click();
-        supportPage.input.type("start");
-        supportPage.randomSectionclick.click();
-        cy.wait(300);
-    });
-    it("case 7(Screenshot error message)", () => {
-        mainPage.Login.click();
-        loginPage.setValueInput(loginPage.loginInput, "fake@gmail.com");
-        loginPage.password.type("Qw1234df!234d");
-        loginPage.checkBox.click();
-        loginPage.submit.click();
-        cy.wait(100);
-        loginPage.logError.screenshot("scr_error",true);
-    });
-    it("case 8(Scroll and assert bottom title)", () => {
+    xit("case 12(Scroll and assert bottom title)", () => {
         mainPage.productsBottom
             .should("be.visible")
             .should("include.text", "Products");
@@ -114,13 +79,11 @@ describe("Test cases", () => {
             .should("be.visible")
             .should("include.text", "Social");
     });
-    xit("case 9(Check element is visible)", async () => {
+    xit("case 13(Check element is visible)", async () => {
         cy.get(".sc-1a5981e5-6").should("not.exist");
         cy.scrollTo("center");
         cy.wait(2000);
         cy.get(".sc-1a5981e5-6").should("be.visible");
     });
-    // it("case 10", async () => {
 
-    // });
 });
