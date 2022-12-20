@@ -6,6 +6,10 @@
 ```
 git clone {repository URL}
 ```
+**and**
+```
+npm install
+```
 **Now you can open Cypress from your project root one of the following ways:**
 
 **Note:** npx is included with npm > v5.2 or can be installed separately.
