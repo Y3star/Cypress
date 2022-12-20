@@ -1,8 +1,12 @@
 {
   "devDependencies": {
+    "@shelex/cypress-allure-plugin": "^2.34.0",
     "cypress": "^12.1.0"
   },
   "dependencies": {
-    "@cypress/xpath": "^2.0.3"
+    "@cypress/xpath": "^2.0.3",
+    "allure-commandline": "^2.20.1",
+    "mocha-allure-reporter": "^1.4.0",
+    "save-dev": "^0.0.1-security"
   }
 }
