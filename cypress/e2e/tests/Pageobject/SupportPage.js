@@ -1,12 +1,7 @@
 import BasePage from "./BasePage";
 
-class SupportPage extends BasePage{
-get input(){
-    return cy.get('[name="q"]')
-}
-get randomSectionclick(){
-    return cy.get('.section div:nth-child(4)')
-}
-
+class SupportPage extends BasePage {
+    input = '[name="q"]';
+    randomSectionclick = ".section div:nth-child(4)";
 }
 export default SupportPage;

@@ -20,7 +20,7 @@ describe("Test cases", () => {
     });
 
     xit("case 1(Sign Up)", () => {
-        mainPage.SignUp.click();
+        mainPage.SignUp.clickElement()
         signUpPage.email.type("fake@gmail.com");
         signUpPage.fullName.type("Fake Name");
         signUpPage.password.type("Qw1234df!234d");
@@ -30,7 +30,7 @@ describe("Test cases", () => {
         cy.wait(300);
     });
     xit("case 2(Log In)", () => {
-        mainPage.Login.click();
+        mainPage.Login.clickElement();
         loginPage.setValueInput(loginPage.loginInput, "fake@gmail.com");
         loginPage.setValueInput(loginPage.passwordInput, "Qw1234df!234d");
         loginPage.clickElement(loginPage.checkBox);
