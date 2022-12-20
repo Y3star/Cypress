@@ -8,7 +8,10 @@
   },
   "scripts": {
     "cy:open": "npx cypress open", 
-    "cy:run": "npx cypress run"
+    "cy:run": "npx cypress run",
+    "cy:run:allure": "npx cypress run --env allure=true",
+    "allure:report":"npx allure generate allure-results --clean",
+    "allure:server": "allure serve allure-results"
     
   }
 }

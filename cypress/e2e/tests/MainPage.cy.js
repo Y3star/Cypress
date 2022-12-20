@@ -15,7 +15,7 @@ describe("Main page", () => {
     it("(Assert main-menu)", () => {
         //cant use hovar right now because my version 12 , and plagin real hovar work in 11v or lowest
         mainPage.clickElement(mainPage.products);
-        mainPage.products.should("include.text", "Products");
+        mainPage.getElement(mainPage.products).should("include.text", "Products");
         mainPage.clickElement(mainPage.solutions);
         mainPage.solutions.should("include.text", "Solutions");
         mainPage.clickElement(mainPage.resources);

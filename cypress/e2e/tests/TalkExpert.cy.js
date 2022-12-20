@@ -17,11 +17,11 @@ describe("Talk Expert page", () => {
     it("(Expert page) all valid input fields", () => {
         mainPage.clickElement(mainPage.Talk);
         cy.wait(2000); // need because page bad loading
-        talkPage.selectElement(talkPage.selecter, "Support");
+        talkPage.selectElementByOption(talkPage.selecter, "Support");
         talkPage.setValueInput(talkPage.firstName, "Fake Name");
         talkPage.setValueInput(talkPage.lastName, "Fake last Name");
         talkPage.setValueInput(talkPage.email, "fake@gmail.com");
-        talkPage.selectElement(talkPage.selecter2, "+1");
+        talkPage.selectElementByIndex(talkPage.selecter2, 1);
         talkPage.setValueInput(talkPage.phone, "3453453450");
         talkPage.setValueInput(talkPage.web, "https://fake-site.gg");
         talkPage.setValueInput(

@@ -16,8 +16,14 @@ class BasePage {
     screenshotElement(selector, name) {
         return cy.get(selector).screenshot(name);
     }
-    selectElement(selector, text) {
+    selectElementByOption(selector, text) {
         return cy.get(selector).select(text);
+    }
+    selectElementByIndex(selector, index) {
+        return cy.get(selector).select(index);
+    }
+    getElement(selector){
+        return cy.get(selector);
     }
 }
 export default BasePage;
