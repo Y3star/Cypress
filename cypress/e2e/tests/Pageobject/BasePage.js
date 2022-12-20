@@ -1,4 +1,5 @@
 class BasePage {
+    // methods
     goto() {
         cy.visit("https://telnyx.com");
         cy.wait(200);

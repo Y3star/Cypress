@@ -1,6 +1,7 @@
 import BasePage from "./BasePage";
 
 class MainPage extends BasePage {
+    //links
     SignUp = 'ul li:nth-child(2) [href="/sign-up"]';
     Login = "div > a:nth-child(4)";
     Talk = '[class*="hhCIhu"] [href="/contact-us"]';
@@ -17,6 +18,7 @@ class MainPage extends BasePage {
     companyBottomTitle = '[data-e2e*="com"] div p';
     missControlBottomTitle = '[data-e2e*="miss"] div p';
     socialBottomTitle = '[data-e2e*="soc"] div p';
-    //
+    // center element 
+    hiddenElement = ".sc-1a5981e5-6";
 }
 export default MainPage;
