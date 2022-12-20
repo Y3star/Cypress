@@ -4,7 +4,7 @@ import LoginPage from "../tests/Pageobject/LoginPage";
 const mainPage = new MainPage();
 const loginPage = new LoginPage();
 
-describe("Test cases", () => {
+describe("Login page", () => {
     beforeEach(() => {
         // run these tests as if in a desktop
         // browser with a 1080p monitor
@@ -13,7 +13,7 @@ describe("Test cases", () => {
         mainPage.goto();
         mainPage.clickCookiesButton();
     });
-    it("case 5(Log In) all valid *log in* page", () => {
+    it("(Log In) all valid *log in* page", () => {
         mainPage.clickElement(mainPage.Login);
         loginPage.setValueInput(loginPage.emailInput, "fake@gmail.com");
         loginPage.setValueInput(loginPage.passwordInput, "Qw1234df!234d");
@@ -21,7 +21,7 @@ describe("Test cases", () => {
         loginPage.clickElement(loginPage.submit);
         cy.wait(300);
     });
-    it("case 6(Log In) with not valid email", () => {
+    it("(Log In) with not valid email", () => {
         mainPage.clickElement(mainPage.Login);
         loginPage.setValueInput(loginPage.emailInput, "fakegmail.com");
         loginPage.setValueInput(loginPage.passwordInput, "Qw1234df!234d");
@@ -30,7 +30,7 @@ describe("Test cases", () => {
         loginPage.screenshotElement(loginPage.error, "scr_error_email_log_in");
         cy.wait(300);
     });
-    it("case 7(Log In) with not valid password", () => {
+    it("(Log In) with not valid password", () => {
         mainPage.clickElement(mainPage.Login);
         loginPage.setValueInput(loginPage.emailInput, "fake@gmail.com");
         loginPage.clickElement(loginPage.checkBox);
@@ -41,7 +41,7 @@ describe("Test cases", () => {
         );
         cy.wait(300);
     });
-    it("case 8(Log In) with did click on check box", () => {
+    it("(Log In) with did click on check box", () => {
         mainPage.clickElement(mainPage.Login);
         loginPage.setValueInput(loginPage.emailInput, "fake@gmail.com");
         loginPage.setValueInput(loginPage.passwordInput, "Qw1234df!234d");

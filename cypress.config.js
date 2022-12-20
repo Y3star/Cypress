@@ -10,4 +10,5 @@ module.exports = defineConfig({
   screenshotsFolder: 'cypress/screenshots',
   viewportHeight: 1080,
   viewportWidth: 1920,
+  requestTimeout: 7000,
 });

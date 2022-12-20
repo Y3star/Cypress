@@ -4,7 +4,7 @@ import TalkPage from "../tests/Pageobject/TalkPage";
 const mainPage = new MainPage();
 const talkPage = new TalkPage();
 
-describe("Test cases", () => {
+describe("Talk Expert page", () => {
     beforeEach(() => {
         // run these tests as if in a desktop
         // browser with a 1080p monitor
@@ -14,7 +14,7 @@ describe("Test cases", () => {
         mainPage.clickCookiesButton();
     });
 
-    it("case 9(Expert page) all valid input fields", () => {
+    it("(Expert page) all valid input fields", () => {
         mainPage.clickElement(mainPage.Talk);
         cy.wait(2000); // need because page bad loading
         talkPage.selectElement(talkPage.selecter, "Support");

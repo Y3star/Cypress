@@ -14,7 +14,7 @@ describe("Test cases", () => {
         mainPage.clickCookiesButton();
     });
 
-    it("case 1(Sign Up) all valid *sign up* page", () => {
+    it("(Sign Up) all valid *sign up* page", () => {
         mainPage.clickElement(mainPage.SignUp);
         signUpPage.setValueInput(signUpPage.email, "fake@gmail.com");
         signUpPage.setValueInput(signUpPage.fullName, "Fake Name");
@@ -24,7 +24,7 @@ describe("Test cases", () => {
         signUpPage.clickElement(signUpPage.clickCreateAcc);
         cy.wait(300);
     });
-    it("case 2(Sign Up) with not valid *email*", () => {
+    it("(Sign Up) with not valid *email*", () => {
         mainPage.clickElement(mainPage.SignUp);
         signUpPage.setValueInput(signUpPage.email, "fake gmail.com");
         signUpPage.setValueInput(signUpPage.fullName, "Fake Name");
@@ -36,7 +36,7 @@ describe("Test cases", () => {
         );
         cy.wait(300);
     });
-    it("case 3(Sign Up) with not valid *full name*", () => {
+    it("(Sign Up) with not valid *full name*", () => {
         mainPage.clickElement(mainPage.SignUp);
         signUpPage.setValueInput(signUpPage.email, "fake@gmail.com");
         signUpPage.setValueInput(signUpPage.password, "Qw1234df!234d");
@@ -48,7 +48,7 @@ describe("Test cases", () => {
         cy.wait(300);
     });
 
-    it("case 4(Sign Up) with not valid *password*", () => {
+    it("(Sign Up) with not valid *password*", () => {
         mainPage.clickElement(mainPage.SignUp);
         signUpPage.setValueInput(signUpPage.email, "fake@gmail.com");
         signUpPage.setValueInput(signUpPage.fullName, "Fake Name");

@@ -2,7 +2,7 @@ import MainPage from "../tests/Pageobject/MainPage";
 
 const mainPage = new MainPage();
 
-describe("Test cases", () => {
+describe("Main page", () => {
     beforeEach(() => {
         // run these tests as if in a desktop
         // browser with a 1080p monitor
@@ -12,7 +12,7 @@ describe("Test cases", () => {
         mainPage.clickCookiesButton();
     });
 
-    it("case 10(assert main-menu)", () => {
+    it("(assert main-menu)", () => {
         //cant use hovar right now because my version 12 , and plagin real hovar work in 11v or lowest
         mainPage.clickElement(mainPage.products);
         mainPage.products.should("include.text", "Products");
@@ -26,7 +26,7 @@ describe("Test cases", () => {
         mainPage.pricing.should("include.text", "Pricing");
         cy.wait(300);
     });
-    it("case 11(Scroll and assert bottom title)", () => {
+    it("(Scroll and assert bottom title)", () => {
         mainPage.productsBottomTitle
             .should("be.visible")
             .should("include.text", "Products");
@@ -46,7 +46,7 @@ describe("Test cases", () => {
             .should("be.visible")
             .should("include.text", "Social");
     });
-    it("case 12(Check element is visible)", () => {
+    it("(Check element is visible)", () => {
         mainPage.hiddenElement.should("not.exist");
         cy.scrollTo("center");
         cy.wait(2000);
