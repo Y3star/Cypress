@@ -1,4 +1,4 @@
-import MainPage from "../tests/Pageobject/MainPage";
+import MainPage from "./Pageobject/MainPage";
 
 const mainPage = new MainPage();
 
