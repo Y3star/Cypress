@@ -31,3 +31,4 @@ allure serve allure-results
 ```
 **How look like allure report   [view report](https://y3star.github.io/Cypress/index.html)**
 
+![](https://i.imgur.com/wxhzVPD.png)
