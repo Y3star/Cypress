@@ -25,4 +25,9 @@ npx cypress run
 ```console
 npx cypress run --env allure=true
 ```
-**How look like allure report**
+**If you want see result in chrome etc.**
+```
+allure serve allure-results
+```
+**How look like allure report [view report](https://y3star.github.io/Cypress/index.html)**
+[]()
