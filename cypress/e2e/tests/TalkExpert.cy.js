@@ -24,10 +24,7 @@ describe("Talk Expert page", () => {
         talkPage.selectElementByIndex(talkPage.selecter2, 1);
         talkPage.setValueInput(talkPage.phone, "3453453450");
         talkPage.setValueInput(talkPage.web, "https://fake-site.gg");
-        talkPage.setValueInput(
-            talkPage.describe,
-            "ty ty ty ty ty ty ty ty ty ty ty ty"
-        );
+        talkPage.setValueInput(talkPage.describe,"ty ty ty ty ty ty ty ty ty ty ty ty");
         talkPage.clickElement(talkPage.checkBox);
         talkPage.clickElement(talkPage.submit);
         cy.wait(300);
